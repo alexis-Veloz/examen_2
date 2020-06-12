@@ -1,0 +1,99 @@
+<%- include ('partials/head.html')%>
+
+
+
+
+<% if(info){ %>
+<title>Cuenta de <%= info %> - School</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-teal w3-hover-teal"><b><i class="fa fa-video w3-margin-right"></i>School</b></a>
+  <a href="/cerrar" class="w3-bar-item w3-button w3-right w3-hover-teal w3-text-grey">Cerrar Sesión</a>
+  <div class="w3-bar-item w3-right w3-text-black"><i class="fa fa-user"></i> <%= info %></div>
+</div>
+
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Todo de <%= info %>:</span>
+      <a href="/cuenta" id="btn-actualizar" class="w3-button w3-teal"><i class="fa fa-edit w3-margin-right"></i>Horario</a>
+      <a href="/inscripcion" id="btn-actualizar" class="w3-button w3-white"><i class="fa fa-edit w3-margin-right"></i>Inscripción</a>
+      <a href="/agregar" id="btn-actualizar" class="w3-button w3-white"><i class="fa fa-edit w3-margin-right"></i>Seleccionar materia</a>
+    </div>
+    
+    <div id="actualizar">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Clave</th>
+                    <th>Nombre de la materia</th>
+                    <th>Grupo</th>
+                    <th>Lunes Aula</th>
+                    <th>Lunes Hora</th>
+                    <th>Martes Aula</th>
+                    <th>Martes Hora</th>
+                    <th>Miercoles Aula</th>
+                    <th>Miercoles Hora</th>
+                    <th>Jueves Aula</th>
+                    <th>Jueves Hora</th>
+                    <th>Viernes Aula</th>
+                    <th>Viernes Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(datos){ %>
+                    <% for(var i = 0; i < datos.length; i++) { %>
+                        <tr>
+                            <td> <%=  datos[i].Clave %></td>
+                            <td> <%=  datos[i].Nombre_materia %></td>
+                            <td> <%=  datos[i].Grupo %></td>
+                            <td> <%=  datos[i].Lunes_aula %></td>
+                            <td> <%=  datos[i].Lunes_hora %></td>
+                            <td> <%=  datos[i].Martes_aula %></td>
+                            <td> <%=  datos[i].Martes_hora %></td>
+                            <td> <%=  datos[i].Miercoles_aula %></td>
+                            <td> <%=  datos[i].Miercoles_hora %></td>
+                            <td> <%=  datos[i].Jueves_aula %></td>
+                            <td> <%=  datos[i].Jueves_hora %></td>
+                            <td> <%=  datos[i].Viernes_aula %></td>
+                            <td> <%=  datos[i].Viernes_hora %></td>
+                  
+
+                        </tr>
+                    
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>  
+    </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+<% }else{ %>
+<title>Iniciar Sesión - School</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-teal w3-hover-teal"><b><i class="fa fa-video w3-margin-right"></i>School</b></a>
+</div>
+
+    <form style="margin:auto;width:60%" action="/sesion" method="post">
+    <p class="w3-large w3-text-teal">Para acceder escriba su usuario y contraseña</p>
+    <div class="w3-section">
+      <label><b>Nombre de usuario</b></label>
+      <input class="w3-input w3-border" type="text" required name="usuario">
+    </div>
+    <div class="w3-section">
+      <label><b>Contraseña</b></label>
+      <input class="w3-input w3-border" type="password" required name="pass">
+    </div>
+    <button type="submit" class="w3-button w3-block w3-teal">Iniciar Sesión</button>
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<% } %>
+
+
+	<div class="clear"></div>
+<%- include ('partials/footer.html')%>

@@ -1,0 +1,45 @@
+<%- include ('partials/head.html')%>
+
+
+
+
+
+<title>Cuenta de <%= info %> - School</title>
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a id="logo" href="/" class="w3-bar-item w3-button w3-text-teal w3-hover-teal"><b><i class="fa fa-video w3-margin-right"></i>School</b></a>
+  <a href="/cerrar" class="w3-bar-item w3-button w3-right w3-hover-teal w3-text-grey">Cerrar Sesión</a>
+  <div class="w3-bar-item w3-right w3-text-black"><i class="fa fa-user"></i> <%= info %></div>
+</div>
+
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Todo de <%= info %>:</span>
+      <a href="/cuenta" id="btn-actualizar" class="w3-button w3-white"><i class="fa fa-edit w3-margin-right"></i>Horario</a>
+      <a href="/inscripcion" id="btn-actualizar" class="w3-button w3-white"><i class="fa fa-edit w3-margin-right"></i>Inscripción</a>
+      <a href="/agregar" id="btn-actualizar" class="w3-button w3-teal"><i class="fa fa-edit w3-margin-right"></i>Seleccionar materia</a>
+    </div>
+    
+    <div id="actualizar">
+                
+                           
+            <form style="margin:auto;width:60%" action="/materia" method="post">
+                <p class="w3-large w3-text-teal">Agregar materia</p>
+                <div class="w3-section">
+                  <select name="materia" id="">
+                    <% for(var i = 0; i < datos.length; i++) { %>
+                      <option value="<%= datos[i].Codigo %>"><%= datos[i].Nombre_materia %></option>
+                    <% } %>
+                  </select>
+                </div>
+                <button type="submit" class="w3-button w3-block w3-teal">Agregar materia</button>
+              </form>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+
+	<div class="clear"></div>
+<%- include ('partials/footer.html')%>
